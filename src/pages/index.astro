@@ -1,5 +1,6 @@
 ---
 import pokemonData from '../data/pokemonItems.json';
+// import SearchForm from '../components/Search.jsx'
 ---
 
 <html lang="en">
@@ -10,8 +11,9 @@ import pokemonData from '../data/pokemonItems.json';
     <meta name="generator" content={Astro.generator} />
     <title>Pokemon</title>
   </head>
-  <body class="max-w-6xl mx-auto">
+  <body class="max-w-6xl mx-auto py-3">
 		<h1 class="text-4xl font-bold text-slate-800 px-2">Pokemon</h1>
+		<!-- <SearchForm client:only="react" /> -->
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 py-6 px-2">
       {
         pokemonData.map((pokemon) => (
@@ -44,3 +46,4 @@ import pokemonData from '../data/pokemonItems.json';
     </div>
   </body>
 </html>
+../components/Search
