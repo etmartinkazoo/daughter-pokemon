@@ -1,0 +1,46 @@
+---
+import pokemonData from '../data/pokemonItems.json';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Pokemon</title>
+  </head>
+  <body class="max-w-6xl mx-auto">
+		<h1 class="text-4xl font-bold text-slate-800">Pokemon</h1>
+		<div class="grid grid-cols-3 gap-3 py-6">
+      {
+        pokemonData.map((pokemon) => (
+          <div class="p-6 shadow rounded-md bg-slate-100">
+						<div class="flex justify-between items-center mb-6">
+							<div>
+								<h2 class="text-orange-800 font-bold capitalize text-2xl">{pokemon?.name?.english}</h2>
+								<h5 class="italic">{pokemon?.species}</h5>
+							</div>
+							<div class="items-center">
+								{pokemon.type.map((individualType) => (
+									<>
+										<span class="bg-slate-600 text-white py-1 px-3 italic rounded-full mr-3 last:mr-0">{individualType}</span>
+									</>
+								))}
+							</div>
+						</div>
+						<div class="grid grid-cols-card-content gap-4">
+							<p>{pokemon.description}</p>
+							<div>
+								<img src={pokemon?.image.thumbnail} alt={pokemon?.name?.english} />
+								<h3 class="font-bold mt-3">Height: <span class="font-normal">{pokemon?.profile?.height}</span></h3>
+								<h3 class="font-bold mt-1">Weight: <span class="font-normal">{pokemon?.profile?.weight}</span></h3>
+								<h3 class="font-bold mt-1">Gender: <span class="font-normal">{pokemon?.profile?.gender}</span></h3>
+							</div>
+						</div>
+          </div>
+        ))
+      }
+    </div>
+  </body>
+</html>
